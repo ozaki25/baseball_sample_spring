@@ -11,9 +11,11 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+import com.example.baseball.validation.PitcherAgeValid;
 import com.example.baseball.validation.PositionValid;
 
 @Entity
+@PitcherAgeValid(ageField = "age", positionField = "position")
 public class Player {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
