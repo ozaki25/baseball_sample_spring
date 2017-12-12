@@ -11,6 +11,8 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+import com.example.baseball.validation.PositionValid;
+
 @Entity
 public class Player {
     @Id
@@ -24,6 +26,7 @@ public class Player {
     private Integer age;
     @Size(max = 20)
     private String team;
+    @PositionValid
     private String position;
 
     public Long getId() {
