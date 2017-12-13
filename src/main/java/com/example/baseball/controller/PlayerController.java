@@ -55,7 +55,10 @@ public class PlayerController {
 
     @PostMapping
     public String create(@Valid @ModelAttribute Player player, BindingResult bindingResult) {
-        if(bindingResult.hasErrors()) return "players/new";
+        if(bindingResult.hasErrors()) {
+            bindingResult.reject("Player.global.error");
+            return "players/new";
+        }
         playerService.save(player);
         return "redirect:/players";
     }
